@@ -1,15 +1,26 @@
 #Описать функию AddLeftDigit(D, K), добавляющую к целому положительному числу K слева цифру D (D — входной параметр целого типа, лежащий в диапазоне 1-9, K — параметр целого типа, являющийся одновременно входным и выходным).
 #С помощью этой функции последовательно добваить к данному числу слева данные цифры D1 и D2, ВЫВОДЯ результат каждого добавления.
 def AddLeftDigit(D, K):
-    K_str = str(K)
-    result = int(str(D))
-    return result
-K = 123
-D1 = 4
-D2 = 7
+    K = str(K)
+    new_num = str(D) + K
+    print(new_num)
 
-K = AddLeftDigit(D1, K)
-print("Результат после добавления цифры D1:", K)
+while True:
+    try:
+        D = int(input('D (1 - 9): '))
+        K = int(input("K: "))
+        if D > 9:
+            raise ValueError
 
-K = AddLeftDigit(D2, K)
-print("Результат после добавления цифры D2:", K)
+        D1 = int(input('D1 (1-9): '))
+        AddLeftDigit(D, K)
+        if D1 > 9:
+            raise ValueError
+        D2 = int(input('D2 (1-9): '))
+        if D2 > 9:
+            raise ValueError
+        AddLeftDigit(D1, K)
+        break
+    except ValueError:
+        print('error')
+
